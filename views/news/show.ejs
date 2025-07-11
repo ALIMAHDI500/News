@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> | News App</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .post-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgb(214, 184, 85);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          
+          
+        }
+        
+        .post-header {
+            border-bottom: 1px solid #660909;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .post-title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #00801c;
+        }
+        
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #e00808;
+            font-size: 0.9rem;
+        }
+        
+        .post-category {
+            background-color: #26e7ce;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .post-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .post-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        img{
+          height: 200px;
+          width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../partials/_navbar') %>
+    
+ <% if(user){%>
+
+
+  <div class="post-container"> 
+
+            <h1 class="post-title"><%= post.title %></h1>
+            <div class="post-meta">
+                <span class="post-author">By <%=post.author%></span>
+                <span class="post-category"><%= post.category %></span>
+               
+            </div>
+      
+        
+        <div class="post-content">
+            <%= post.text %>
+        </div>
+  <img src=" <%=post.imageLink%>" class="Photo">
+        
+          </div>
+         <div class="post-actions">
+              
+            
+                <form action="/news/<%= post._id %>?_method=DELETE" method="POST">
+                    <a href="/news/<%= post._id %>/edit" class="btn-edit">Edit Post</a>
+                    <button type="submit" class="btn-delete">Delete Post</button>
+                     
+                </form>
+           </div>
+            
+
+
+
+     
+ <% } else { %>
+   
+  <% news.forEach(post => { %>
+
+   
+  
+       <div class="post-container"> 
+
+            <h1 class="post-title"><%= post.title %></h1>
+            <div class="post-meta">
+                <span class="post-author">By <%=post.author%></span>
+                <span class="post-category"><%= post.category %></span>
+               
+            </div>
+      
+        
+        <div class="post-content">
+            <%= post.text %>
+        </div>
+  <h3> <img src=" <%=post.imageLink%>"></h3>
+        
+
+
+    <h3> <%= post.Date %></h3>
+          </div>
+       
+
+          
+  <% }) %>
+
+
+<% } %>
+  
+
+</body>
+</html>

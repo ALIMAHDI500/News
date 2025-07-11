@@ -1,0 +1,14 @@
+<nav>
+  <a href="/">Home</a>
+  
+  <% if (user) { %>
+    <a href="/news">My News Dashboard</a>
+    <a href="/news/new">Add New Post</a>
+    <a href="/user/sign-out">Sign Out</a>
+  <% } else { %>
+    
+    <a href="/show">Browse News</a>
+    <a href="/user/sign-in">Sign In</a>
+    <a href="/user/sign-up">Sign Up</a>
+  <% } %>
+</nav>

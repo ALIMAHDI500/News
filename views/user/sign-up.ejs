@@ -1,0 +1,76 @@
+<h1>Create a new account</h1>
+<form method="POST" action="/user/sign-up">
+  <label for="username">Username</label>
+  <input type="text" name="username" id="username"required>
+  <br>
+  <label for="password">Password</label>
+  <input type="password" name="password" id="password" required>
+  <br>
+  <label for="confirmPassword">Confirm Password</label>
+  <input type="password" name="confirmPassword" id="confirmPassword" required>
+  <br> 
+
+ <% if (error!==null) { %>
+   <%= error %>
+ <% } %>
+  <br>
+  <button type="submit">Sign up</button>
+</form>
+
+
+
+
+<style>
+
+body {
+  padding: 50px;;
+  margin: 50px;
+  justify-content: center;
+  justify-items: center;
+  background-color: rgb(209, 190, 81);
+}
+h1 {
+
+ text-align: center;
+ color: firebrick;
+}
+form {
+
+  text-align: center;
+ background-color: rgb(0, 217, 255);
+ height: fit-content;
+padding: 50px;
+;
+width: fit-content;
+
+}
+label {
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ font-weight: bold;
+ display: block;
+ text-align: left;
+ margin: 10px;
+ 
+}
+
+button {
+background-color: blue;
+padding: 10px 20px;
+margin: 30px;
+color:rgb(238, 238, 238);
+font-size: large;
+border-radius: 10px;
+}
+button:hover {
+
+cursor: pointer;
+
+}
+input{
+
+  width: 300px;
+  height: 30px;
+}
+
+
+</style>

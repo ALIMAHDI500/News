@@ -1,0 +1,91 @@
+<%
+  const newsItems = Array.isArray(news) ? news : [];
+%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Public News Feed : My News Dashboard </title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('../partials/_navbar') %>
+    <div class="container">
+
+        <h1>My News Dashboard:<%= user.username %></h1>
+
+        <% if (user) { %>
+          
+            
+              <div class="news-grid">
+
+          <% newsItems.forEach(post => { %>
+              <div class="news-card">
+             <h3><a href="/news/<%= post._id %>"><%= post.title %></a></h3>
+           <p><%= post.text.substring(0, 100) %><%= post.text.length > 100 ? '...' : '' %></p>
+            <div class="meta">
+               <span class="category"><%= post.category %></span>
+               <h3> <img src=" <%=post.imageLink%>"></h3>
+             </div>
+             <h5><%= post.Date %></h5>
+                <div class="post-actions">
+              
+            
+                <form action="/news/<%= post._id %>?_method=DELETE" method="POST">
+                    <a href="/news/<%= post._id %>/edit" class="btn-edit">Edit Post</a>
+                    <button type="submit" class="btn-delete">Delete Post</button>
+                     
+                </form>
+           </div>
+            
+                     
+           </div> 
+
+
+           
+            
+
+
+
+          <% }) %>
+
+
+  <button>   <a href="/news/new" > Add New Post</a> </button> 
+
+          </div>   
+ </div>
+
+        <% } else{  %>
+   
+ 
+ <div class="post-container"> 
+
+            <h1 class="post-title"><%= post.title %></h1>
+            <div class="post-meta">
+                <span class="post-author">By <%=post.author%></span>
+                <span class="post-category"><%= post.category %></span>
+               
+            </div>
+      
+        
+        <div class="post-content">
+            <%= post.text %>
+        </div>
+     <img src=" <%=post.imageLink%>">
+        
+          </div>
+         <div class="post-actions">
+              
+            
+                <form action="/news/<%= post._id %>?_method=DELETE" method="POST">
+                    <a href="/news/<%= post._id %>/edit" class="btn-edit">Edit Post</a>
+                    <button type="submit" class="btn-delete">Delete Post</button>
+                     
+                </form>
+           </div>
+            
+
+
+
+        <% } %>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>News App</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <%- include('partials/_navbar') %>
+    
+    <div class="container">
+        <h1>Welcome to the News App</h1>
+        <p>Let Read and Share the Best News In world</p>
+        
+        <% if (user) { %>
+            <a href="/news" class="btn">Move to Your Views</a>
+        <% } else { %>
+            <div class="guest-options">
+                <a href="/show" class="btn">Browse All News</a>
+                <a href="/user/sign-up" class="btn">Join Now to Post</a>
+            </div>
+        <% } %>
+    </div>
+</body>
+</html>
