@@ -3,22 +3,52 @@
 <head>
     <title>News App</title>
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+
+img{
+
+height: 300px;
+width: max-content;
+
+}
+
+a{
+
+   color: rgb(243, 243, 243);
+}
+
+.btn{
+ 
+color: rgb(0, 27, 107);
+border: black solid 1px;
+background-color: aliceblue;
+
+padding: 15px;
+margin: 10;
+}
+
+    </style>
 </head>
 <body>
     <%- include('partials/_navbar') %>
-    
+      <h1>Welcome to the News App</h1>
+        <h2>Let's explore the news and conditions of the world and their
+             creativity and read and explore the world through the latest news</h2>
     <div class="container">
-        <h1>Welcome to the News App</h1>
-        <h2>Let Read and Share the Best News In world</h2>
-        
-        <% if (user) { %>
+             <% if (locals.user) { %>
             <a href="/news" class="btn">Move to Your Views</a>
         <% } else { %>
-            <div class="guest-options">
-                <a href="/show" class="btn">Browse All News</a>
+        
+                <h4> <a href="/show"class="btn">Let Browse News</a></h4>
                 <!-- <a href="/user/sign-up" class="btn">Join Now to Post</a> -->
-            </div>
+            
         <% } %>
     </div>
+      
+      
+
+             <img src="https://miro.medium.com/v2/resize:fit:1200/1*njbON5z9v07DZ3Fv2QDhHQ.jpeg"alt="News Poster"><br>
+
+   
 </body>
 </html>

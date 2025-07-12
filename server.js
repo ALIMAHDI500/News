@@ -22,7 +22,7 @@ const User = require('./models/User');
 
 const port = process.env.PORT || 3000;
 
-// 
+// Connect with MONGODB 
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on("connected", () => {
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
@@ -31,7 +31,7 @@ mongoose.connection.on("error", (err) => {
   console.error('MongoDB connection error:', err);
 });
 
-// 
+// Steap seesion
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(morgan('dev'));
@@ -69,9 +69,9 @@ app.get("/", (req, res) => {
 
 //router for gust and show one Post and can Edit or Delete
 app.get("/show",async(req,res)=>{
-   
+   //Store All Users
  const users = await User.find({}, 'username pantry');
-    
+    //Use Nested forEach to Find and Save All news for All User into one Varible to use it in Gust Page
     const allNews = [];
     users.forEach(user => {
       if (user.pantry && Array.isArray(user.pantry)) {

@@ -13,8 +13,6 @@
             background: rgb(214, 184, 85);
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          
-          
         }
         
         .post-header {
@@ -29,17 +27,24 @@
             color: #00801c;
         }
         
-        .post-meta {
-            display: flex;
-            justify-content: space-between;
-            color: #e00808;
-            font-size: 0.9rem;
+        .post-author {
+            display:flex;
+            color: #0804fd;
+            font-size: 1.0em;
+            justify-items: end
+            
         }
         
         .post-category {
+             display: flex;
             background-color: #26e7ce;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
+            border-radius:1px;
+            color: #ff0000;
+             justify-self: end;
+            border: #007bff solid 1px;
+             width:fit-content;
+             padding:10px;
+             margin: 10px;
         }
         
         .post-content {
@@ -70,72 +75,55 @@
           height: 200px;
           width: 200px;
         }
+
+        .Photo{
+          align-items: center;
+        }
     </style>
 </head>
 <body>
     <%- include('../partials/_navbar') %>
     
  <% if(user){%>
-
-
-  <div class="post-container"> 
-
+  <div class="post-container">
             <h1 class="post-title"><%= post.title %></h1>
-            <div class="post-meta">
-                <span class="post-author">By <%=post.author%></span>
+                  
+             
                 <span class="post-category"><%= post.category %></span>
-               
-            </div>
-      
-        
+            
         <div class="post-content">
             <%= post.text %>
         </div>
-  <img src=" <%=post.imageLink%>" class="Photo">
-        
-          </div>
-         <div class="post-actions">
+  <img src=" <%=post.imageLink%>" >
+    
               
-            
-                <form action="/news/<%= post._id %>?_method=DELETE" method="POST">
-                    <a href="/news/<%= post._id %>/edit" class="btn-edit">Edit Post</a>
-                    <button type="submit" class="btn-delete">Delete Post</button>
-                     
-                </form>
-           </div>
-            
+                 <div class="post-actions">
+                        <form action="/news/<%= post._id %>?_method=DELETE" method="POST">
+                       <button><a href="/news/<%= post._id %>/edit" class="btn-edit">Edit Post</a> </button> 
+                        <button type="submit" class="btn-delete">Delete Post</button>
+                     </form>
+                 </div>
 
-
-
-     
+        </div>            
  <% } else { %>
    
   <% news.forEach(post => { %>
 
-   
-  
        <div class="post-container"> 
-
             <h1 class="post-title"><%= post.title %></h1>
-            <div class="post-meta">
-                <span class="post-author">By <%=post.author%></span>
-                <span class="post-category"><%= post.category %></span>
-               
-            </div>
-      
         
+              
+                <span class="post-category"><%= post.category %></span>
+            
         <div class="post-content">
             <%= post.text %>
         </div>
-  <h3> <img src=" <%=post.imageLink%>"></h3>
+
+    <img src=" <%=post.imageLink%>"alt="imagepost"class="Photo"> <br>
         
-
-
-    <h3> <%= post.Date %></h3>
-          </div>
-       
-
-          
+     <%= post.Date %>
+       <span class="post-author">By <%=post.author%></span>
+          </div>     
   <% }) %>
 
 

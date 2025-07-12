@@ -88,9 +88,9 @@ router.get('/:postId/edit',async(req,res)=>{
     }
 
     const post=user.pantry.id(req.params.postId)
-    // if(!post){
-    //   res.redirect("/news")
-    // }
+    if(!post){
+      res.redirect("/news")
+    }
 
     
     res.render("news/edit",{user:user,post:post})

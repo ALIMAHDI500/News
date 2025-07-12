@@ -11,7 +11,7 @@ body {
 
 .news-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 20px;
   margin: 20px 0;
 }
@@ -24,51 +24,38 @@ body {
   box-shadow: 0 2px 4px rgba(247, 241, 241, 0.1);
 }
 
-.news-card h3 {
-  margin-top: 0;
-  color: #333;
-}
+
 
 .category {
   display: inline-block;
-  background: #f0f0f0;
+  background: #efff13;
   padding: 3px 8px;
   border-radius: 4px;
-  font-size: 0.8rem;
-  margin-top: 10px;
+  font-size: 1.5em;
+  margin: 10px;
+  color:dodgerblue;
 }
 
 .actions {
   margin-top: 10px;
 }
 
-.btn {
-  display: inline-block;
-  padding: 8px 15px;
-  background: #007bff;
-  color: white;
-  cursor: pointer;
-  text-decoration: none;
-}
+
 
 .btn.cancel {
   background: #6c757d;
   margin-left: 10px;
 }
 
-.btn-edit {
-  background: #28a745;
-  color: white;
-  padding: 5px 10px;
-  text-decoration: none;
-  
-}
+/* .btn-edit {
+ 
+ 
+ 
+} */
 
 .btn-delete {
-  background: #dc3545;
-  color: rgb(223, 203, 203);
-  padding: 5px 10px;
-  cursor: pointer;
+ background-color: red;
+ cursor: pointer;
 }
 
 .form-group {
@@ -89,11 +76,7 @@ body {
   border-radius: 4px;
 }
 
-.meta {
-  font-size: 0.9rem;
-  color: #1c4ba1;
-  margin-top: 10px;
-}
+
 
 img{
        height: 200px;
@@ -102,26 +85,27 @@ img{
 
   nav{
   
- font-weight: bold;
-  display: block;
+  font-weight: bold;
+  display: flex;
   flex-direction: row ;
-   justify-content: space-between;
    background-color: #5a848f;
+   justify-items: left;
+   margin: 10px;
+   padding: 20px;
+   gap: 10px;
   }
 
  button{
-background-color: rgb(21, 21, 197);
-padding: 10px 20px;
-margin: 30px;
-color:rgb(31, 41, 189);
-font-size: large;
-border-radius: 10px;
-  
-
+  padding: 10px 20px;
+  margin: 30px;
+  font-size: large;
+  border-radius: 10px;
+  color:white;
+  background-color: #007bff;
   }
   a{
 
-color:whitesmoke;
+  color:whitesmoke;
   text-decoration: none;
   
   }
@@ -129,3 +113,12 @@ color:whitesmoke;
    text-decoration: none;
    font-weight: bold;
   }
+
+ h3{
+
+font-size: large;
+font-weight: bold;
+color: #007bff;
+background-color: #1381ff;
+  }
+

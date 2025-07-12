@@ -1,6 +1,4 @@
-<%
-  const newsItems = Array.isArray(news) ? news : [];
-%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,46 +10,38 @@
     <div class="container">
 
         <h1>My News:<%= user.username %></h1>
-
+  <!--check if the array news not null and pass it to newItems  -->      
+<%
+  const newsItems = Array.isArray(news) ? news : [];
+%>
         <% if (user) { %>
           
-            
               <div class="news-grid">
 
           <% newsItems.forEach(post => { %>
               <div class="news-card">
              <h3><a href="/news/<%= post._id %>"><%= post.title %></a></h3>
-           <p><%= post.text.substring(0, 100) %><%= post.text.length > 100 ? '...' : '' %></p>
-            <div class="meta">
+             <p><%= post.text.substring(0, 100) %><%= post.text.length > 150 ? '...' : '' %></p>
                <span class="category"><%= post.category %></span>
-               <h3> <img src=" <%=post.imageLink%>"></h3>
-             </div>
+                 <img src=" <%=post.imageLink%>"alt="imagepost"> 
+             
              <h5><%= post.Date %></h5>
                 <div class="post-actions">
-              
-            
                 <form action="/news/<%= post._id %>?_method=DELETE" method="POST">
-                    <a href="/news/<%= post._id %>/edit" class="btn-edit">Edit Post</a>
+                   <button><a href="/news/<%= post._id %>/edit" class="btn-edit">Edit Post</a> </button>
                     <button type="submit" class="btn-delete">Delete Post</button>
-                     
                 </form>
-           </div>
+          </div>  
             
                      
-           </div> 
-
-
-           
-            
-
+         </div> 
 
 
           <% }) %>
 
-
-  <button>   <a href="/news/new" > Add New Post</a> </button> 
-
-          </div>   
+ 
+             <button>   <a href="/news/new" > Add New Post</a> </button> 
+  </div>   
  </div>
 
         <% } else{  %>
@@ -77,15 +67,12 @@
               
             
                 <form action="/news/<%= post._id %>?_method=DELETE" method="POST">
-                    <a href="/news/<%= post._id %>/edit" class="btn-edit">Edit Post</a>
+                  <button>  <a href="/news/<%= post._id %>/edit" class="btn-edit">Edit Post</a></button> 
                     <button type="submit" class="btn-delete">Delete Post</button>
                      
                 </form>
            </div>
             
-
-
-
         <% } %>
 </body>
 </html>
