@@ -122,3 +122,11 @@ color: #007bff;
 background-color: #1381ff;
   }
 
+
+  #Add{
+
+   display: block;
+   width: 250px;
+   height: 100px;
+    padding: 10px;
+  }

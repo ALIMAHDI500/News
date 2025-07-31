@@ -24,7 +24,8 @@ password:{
     required:true
 },
 
-pantry:[newsSchema]
+pantry:[newsSchema],
+
 
 
 
