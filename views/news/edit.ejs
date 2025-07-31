@@ -2,109 +2,117 @@
 
 
 
-<style>
+  <style>
+    body {
 
-body {
-  
-  justify-content: center;
-  justify-items: center;
-  background-color: rgb(209, 190, 81);
-}
-h1 {
+      justify-content: center;
+      justify-items: center;
+      background-color: rgb(209, 190, 81);
+    }
 
- text-align: center;
- color: firebrick;
-}
-form {
+    h1 {
 
-  text-align: center;
-  background-color: rgb(0, 217, 255);
-  height: auto;
-   padding: 10px;
+      text-align: center;
+      color: firebrick;
+    }
 
-}
-label {
- font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
- font-weight: bold;
- display: block;
- text-align: left;
- margin: 10px;
- 
-}
+    form {
 
-button {
-background-color: blue;
-padding: 10px 20px;
-margin: 30px;
-color:rgb(238, 238, 238);
-font-size: large;
-border-radius: 10px;
-}
-button:hover {
+      text-align: center;
+      background-color: rgb(0, 217, 255);
+      height: auto;
+      padding: 10px;
 
-cursor: pointer;
+    }
 
-}
-input{
+    label {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-weight: bold;
+      display: block;
+      text-align: left;
+      margin: 10px;
 
-  width: 300px;
-  height: 30px;
-}
-.form-group{
-display: block;
-  justify-items: start;
-}
-a{
-  text-decoration: none;
-  color: bisque;
-}
+    }
 
-</style>
+    button {
+      background-color: blue;
+      padding: 10px 20px;
+      margin: 30px;
+      color: rgb(238, 238, 238);
+      font-size: large;
+      border-radius: 10px;
+    }
 
-<h1>Edit Post</h1>
+    button:hover {
 
-<form action="/news/<%= post._id %>?_method=PUT" method="POST">
-  <div class="form-group">
-    <label for="title">Title</label>
-    <input type="text" id="title" name="title" value="<%= post.title %>" required>
-  </div>
-  
-  <div class="form-group">
-    <label for="text">Content</label>
-    <textarea id="text" name="text" rows="7" required><%= post.text %></textarea>
-  </div>
-  
-  <div class="form-group">
-    <label for="category">Category</label>
-     <select  id="category" name="category" required> 
-                     <option>Technology </option>
-                     <option>Education  </option>
-                     <option>Healthy  </option>
-                     <option>Sport  </option>
-                     <option>Commercial</option>
-                     <option>Creative</option>
-                     <option>Mix  </option>
+      cursor: pointer;
 
-     </select>
+    }
 
-  </div>
-  
-              <div class="form-group">
-                <label for="text">Image</label>
-               <input type="url" name="imageLink" placeholder="image-URL" value="<%= post.imageLink %>"> </input>
+    input {
 
-              </div>
-             
-              
+      width: 300px;
+      height: 30px;
+    }
 
-            <h3> Create Date: <p>  <%= post.Date %></p></h3>
+    .form-group {
+      display: block;
+      justify-items: start;
+    }
 
-           <div class="form-group">
-                <label for="text">Date</label>
-               <input type="datetime-local" name="Date" value="<%= post.Date%> "required> </input>
- 
-            </div>
+    a {
+      text-decoration: none;
+      color: bisque;
+    }
+  </style>
 
-  <button type="submit" class="btn">Update Post</button>
-   <button type="cancel"> <a href="/news" class="btn cancel">Cancel</a> </button>
-</form>
+  <h1>Edit Post</h1>
+
+  <form action="/news/<%= post._id %>?_method=PUT" method="POST">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" id="title" name="title" value="<%= post.title %>" required>
+    </div>
+
+    <div class="form-group">
+      <label for="text">Content</label>
+      <textarea id="text" name="text" rows="7" required><%= post.text %></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <select id="category" name="category" required>
+        <option>Technology </option>
+        <option>Education </option>
+        <option>Healthy </option>
+        <option>Sport </option>
+        <option>Commercial</option>
+        <option>Creative</option>
+        <option>Mix </option>
+
+      </select>
+
+    </div>
+
+    <div class="form-group">
+      <label for="text">Image</label>
+      <input type="url" name="imageLink" placeholder="image-URL" value="<%= post.imageLink %>"> </input>
+
+    </div>
+
+
+
+    <h3> Create Date: <p>
+        <%= post.Date %>
+      </p>
+    </h3>
+
+    <div class="form-group">
+      <label for="text">Date</label>
+      <input type="datetime-local" name="Date" value="<%= post.Date%> " required> </input>
+
+    </div>
+
+    <button type="submit" class="btn">Update Post</button>
+    <button type="cancel"> <a href="/news" class="btn cancel">Cancel</a> </button>
+  </form>
