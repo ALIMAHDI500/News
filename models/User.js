@@ -25,6 +25,9 @@ password:{
 },
 
 pantry:[newsSchema],
+Email:{type:String},
+phone :{type:Number}
+
 
 
 

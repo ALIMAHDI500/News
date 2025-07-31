@@ -12,7 +12,7 @@ This App Use to review and Add News Postes In the internet
 1. User will Sing-up  and create new Account 
 
 
-![sign-up](<Screenshot 2025-07-11 144908.png>)
+![sign-up](image-5.png)
 
 2. After Sign-up it will sign-in to allow user to Add new Postes 
 
@@ -49,6 +49,9 @@ Project planning link[Trello](https://trello.com/invite/b/6870ddac83b4fb4c4772e0
 
 ![ERD](image.png)
 
+The relationship it will be one to many 
 
-8. Use for project
+
+
+8. Tools and method usage:
  This project Use HTML,CSS,JAVASCRIPT  and Use MongooDB as Database
